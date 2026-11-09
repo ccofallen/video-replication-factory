@@ -1,0 +1,6 @@
+#!/bin/sh
+runtime=$(git config --get factory.python)
+if [ -z "$runtime" ]; then
+  if command -v python3 >/dev/null 2>&1; then runtime=python3; else runtime=python; fi
+fi
+exec "$runtime" -B -X utf8 tools/verify_publish.py --pre-push "$1" "$2"

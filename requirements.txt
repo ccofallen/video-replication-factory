@@ -1,0 +1,4 @@
+av
+Pillow
+# Offline audio-regression fixtures use NumPy.
+numpy

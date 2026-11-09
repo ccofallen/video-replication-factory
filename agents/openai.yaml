@@ -1,0 +1,4 @@
+interface:
+  display_name: "视频复刻工厂"
+  short_description: "参考视频复刻、人物与产品替换、物理一致性审核和专属技能生成"
+  default_prompt: "使用 $video-replication-factory，按我的参考视频与素材复刻视频，并审核人物、产品、动作和图案的一致性。"

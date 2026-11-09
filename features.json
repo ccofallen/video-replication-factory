@@ -1,0 +1,425 @@
+{
+  "schema_version": 1,
+  "features": [
+    {
+      "id": "source-facts",
+      "status": "implemented",
+      "scope": "Complete real decode, rational source PTS, role/shot/event contracts and evidence; visual facts require Codex review."
+    },
+    {
+      "id": "prompt-compiler",
+      "status": "implemented",
+      "scope": "Six-section English source/identity contract with human Subject roles independent of ordered model Picture slots; explicit product/background/continuation scope, user replacement mode and actual upload/node provenance; requires current semantic and visual review."
+    },
+    {
+      "id": "frame-ownership",
+      "status": "implemented",
+      "scope": "Exact source coverage, context/padding excluded, candidate output-axis mapping and current-version review guards."
+    },
+    {
+      "id": "source-time-assembly",
+      "status": "implemented",
+      "scope": "CFR/VFR source PTS and final-frame duration; source display aspect/color; one high-quality encoding."
+    },
+    {
+      "id": "source-audio",
+      "status": "implemented",
+      "scope": "Silent output remains silent; compatible original tracks remux with packet payload, timing, language and disposition."
+    },
+    {
+      "id": "global-runner",
+      "status": "implemented-offline-verified",
+      "scope": "Private account-wide SQLite cap3, uncertain POST protection, recovery-only downloads and persistent stop/cooldown."
+    },
+    {
+      "id": "per-video-skill",
+      "status": "implemented",
+      "scope": "Original source assets, neutral facts and self-contained scripts; SHA dedup, staged install journal, versioned upgrade and verified ZIP."
+    },
+    {
+      "id": "cloud-quality",
+      "status": "requires-production-case-review",
+      "scope": "Authorized first production window is reviewed before batch; documented reference count is not evidence of identity fidelity."
+    },
+    {
+      "id": "visual-judgment",
+      "status": "codex-orchestrated",
+      "scope": "Actual dynamic viewing and native risk-frame review; no fabricated automatic identity score or visual pass."
+    },
+    {
+      "id": "rotation-and-time-projection",
+      "status": "implemented-offline-verified",
+      "scope": "90/180/270 display normalization with SAR, explicit CFR/VFR reference projection and pending review of sampling loss."
+    },
+    {
+      "id": "passthrough-and-window-routing",
+      "status": "implemented-offline-verified",
+      "scope": "Target-free source windows bypass cloud generation; one/two subject legacy routes choose a reviewed pilot per route."
+    },
+    {
+      "id": "reusable-package",
+      "status": "implemented-offline-verified",
+      "scope": "Real dedicated-script subprocess reuse; Python caches excluded; manifest whitelist and current-file SHA enforced."
+    },
+    {
+      "id": "explicit-generated-preroll",
+      "status": "implemented-offline-verified",
+      "scope": "Optional source-opening hold, shifted prompt/video/derived-audio and owner map; original source frames and final PTS/audio retained; requires current visual review."
+    },
+    {
+      "id": "reviewed-opening-guide",
+      "status": "implemented-offline-verified",
+      "scope": "Run-specific corrected source-pose guide only in excluded preroll, current image/source/signature review; unmodified owned source actions; identity guide excluded from reusable template."
+    },
+    {
+      "id": "queue-busy-recovery",
+      "status": "implemented-offline-verified",
+      "scope": "No-task explicit415/421/429/1003/1010/1011 rejection waits at least60seconds and retries indefinitely. Known-task query busy, including statusFAILED, retains original state/ID/slot/receipt and queries after60seconds without repeatedPOST or failure-count exhaustion. defer_submission rejects known IDs;804/813 and uncertain POST never repost."
+    },
+    {
+      "id": "model-key-permission-routing",
+      "status": "implemented-offline-verified",
+      "scope": "Explicit1014 with no task blocks standard model submissions for the same account/key fingerprint across restart; legacy app and known-task recovery remain available."
+    },
+    {
+      "id": "detailed-guide-and-repair-review",
+      "status": "codex-orchestrated",
+      "scope": "Current visible iris/eye/jaw review; source intermediate motion phases; local-composite per-frame provenance/seam checks; actual decoded RGB/PTS proof for intermediate encoding. These are review requirements, not an automatic quality guarantee."
+    },
+    {
+      "id": "motion-phase-and-parallel-review",
+      "status": "codex-orchestrated",
+      "scope": "Measured transition/completion/hold events; distinct candidate hypotheses; single recovery dispatcher. No automatic visual approval."
+    },
+    {
+      "id": "explicit-source-time-scale",
+      "status": "implemented-offline-verified",
+      "scope": "Optional1..4 rational source motion/audio/event dilation with cache binding and original final PTS/audio; four actual-media tests. One current2x continuous pilot accepted after native/actual-speed source-phase comparison; no universal quality guarantee."
+    },
+    {
+      "id": "automatic-known-result-https-recovery",
+      "status": "implemented-offline-verified",
+      "scope": "Live Google/Cloudflare public IPv4 agreement only for the actually observed COS host, original HTTPS/SNI/certificates, full ffmpeg decode and atomic result promotion; no new generation."
+    },
+    {
+      "id": "portable-neutral-source-template",
+      "status": "implemented-offline-verified",
+      "scope": "Original ready guard before neutral copy; freeform run notes excluded; actual ZIP extract and compiled-script independent instantiate, SHA/size integrity and strict new-run signature tests."
+    },
+    {
+      "id": "current-window-identity-overrides",
+      "status": "implemented-offline-verified",
+      "scope": "Complete exact current-slot identity dictionaries; compiler labels rejected; local input/cache digest binding; actual six-window test leaves other five inputs unchanged; not a visual quality verdict."
+    },
+    {
+      "id": "actual-final-technical-report-contract",
+      "status": "implemented-offline-verified",
+      "scope": "Current SHA/size/mtime bound complete actual decoded report; source display canvas/SAR/color/normalized rotation, every source PTS and duration, original packet and audio stream contract; eight new real-media tests. Visual approval remains actual Codex observation."
+    },
+    {
+      "id": "chinese-source-skill-names",
+      "status": "implemented-offline-verified",
+      "scope": "Chinese build CLI title stored in entry/description/UI/manifest/ZIP; hash filename fallback, unchanged stable source id, preserved reused names and inherited ready revision title."
+    },
+    {
+      "id": "bound-production-reuse",
+      "status": "codex-orchestrated",
+      "scope": "Reuse same-SHA measured source facts; resume known task IDs; retain current unchanged passed reviews; repair only failed windows and affected seams. New identities/outputs receive actual QA; no repeated factory research by default."
+    },
+    {
+      "id": "explicit-legacy-source-canvas",
+      "status": "implemented-offline-and-actual-portrait-direction-verified",
+      "scope": "Published single-image115+214 aspects/115MP, source DAR guard and immutable pilot route;11 offline regressions. Actual1088x1920/24fps/107frames confirmed. Exact grid normalization and identity/props still need review."
+    },
+    {
+      "id": "standing-crop-timing-and-text-repair",
+      "status": "codex-orchestrated",
+      "scope": "Observed standing-close-crop repair and separate phase timing review; facial reappearance guide and clean-caption hypotheses require actual full review. Serialized current input/queue maintenance and corrected neutral source-template events. No automatic quality guarantee."
+    },
+    {
+      "id": "visible-extreme-crop-and-scoped-comparison",
+      "status": "codex-orchestrated",
+      "scope": "Observed portrait insertion/actor reappearance/delayed short-phase outputs trigger source-visible facial crop and source-matched guide review; excluded tail is not a quality guarantee. Scoped authorized repair queue with final complete-run ownership/parent/seam checks; actual new candidate review remains required."
+    },
+    {
+      "id": "two-image-published-ratio-and-reference-order",
+      "status": "implemented-offline-verified-cloud-pilot-pending",
+      "scope": "Currenttwoimageapp publishes115/214 aspectnodes plus139image. BothknownappIDs allowed, unrecognizedapp214stillrejected; immutable137139referenceorder and pilotrouteisolation verified. Two pictures maydescribe sameoneidentity; actualoutputidentity/framing/timing require freshpilot."
+    },
+    {
+      "id": "shot-driven-ten-second-production-cap",
+      "status": "implemented-offline-verified",
+      "scope": "Measuredshot/actionboundaries, no fixed5seconddefault. Sourceowner and fullgeneratedclip hardcap10seconds includingcontext/preroll/dilation/tail; no truncatedowners. Standard6secondshotretained,11secondshotneeds reviewedsubwindows; explicitframeclockpreflight; newstandaloneentry/runtimeinherit."
+    },
+    {
+      "id": "three-active-tail-repair-policy",
+      "status": "codex-orchestrated-offline-runner-verified",
+      "scope": "Codex maintains three approved active generation jobs; normal3windows or final1-2failedscope three distinct isolated hypotheses sharing one ledger/dispatcher. Runtime cap/pilot/recovery guards unchanged; actual cloud and visual approvals remain separate."
+    },
+    {
+      "id": "background-only-media-review",
+      "status": "codex-orchestrated",
+      "scope": "Honor user no-desktop-input preference. Actual full native source-pose/PTS observations permit input approvals; contiguous-frame evidence is separate from real-speed playback. No automatic visual pass and no final-ready gate relaxation."
+    },
+    {
+      "id": "source-guide-panel-boundaries-and-external-scalar",
+      "status": "mixed-codex-review-and-offline-verified",
+      "scope": "Actual-photo-boundary cropping and native everyguide edge checks are Codex decisions. Explicit Windows scalar option now reaches derived-audio FFmpeg subprocess, with noninteractive stdin and numeric error exit;68actualmedia/template checks passed. No automatic cloud quality approval."
+    },
+    {
+      "id": "conditional-head-caption-and-full-encode-review",
+      "status": "codex-orchestrated-production-observed",
+      "scope": "Conditional fully covered head core/soft outer blend, actual clean caption-patch editing with outside RGB proof and original glyph/time/style continuity; actual unspecified source color preservation and full independent encoding decode. Current portrait technical evidence is721frames and1297original AAC packets; visual dynamic remains pending. Runtime unchanged."
+    },
+    {
+      "id": "original-identity-authority-and-feedback-revocation",
+      "status": "codex-orchestrated",
+      "scope": "Actual original-photo/source/output side-by-side identity judgment; derived/generated references cannot become sole identity authority based on prior passes. Whole-film user identity rejection revokes corresponding verdicts and triggers literal-reference pilots. No automatic face score or claim current portrait film passed."
+    },
+    {
+      "id": "original-photo-identity-correction",
+      "status": "historical-disabled-for-new-work",
+      "scope": "Historical method and bound evidence retained for audit. Current modification policy regenerates complete affected video windows; face/alpha overlays and patched delivery shortcuts are disabled."
+    },
+    {
+      "id": "measured-correction-output-clock",
+      "status": "historical-proof-utility",
+      "scope": "Historical measured route clock and RGB/PTS proof utilities retained; not a current face-overlay production route."
+    },
+    {
+      "id": "configured-face-detail",
+      "status": "historical-disabled-for-new-work",
+      "scope": "Historical method and bound evidence retained for audit. Current modification policy regenerates complete affected video windows; face/alpha overlays and patched delivery shortcuts are disabled."
+    },
+    {
+      "id": "postprocessed-delivery-review",
+      "status": "historical-disabled-for-new-work",
+      "scope": "Historical method and bound evidence retained for audit. Current modification policy regenerates complete affected video windows; face/alpha overlays and patched delivery shortcuts are disabled."
+    },
+    {
+      "id": "chinese-template-context",
+      "status": "implemented-case-scoped",
+      "scope": "Every new standalone skill carries Chinese entry/UI/manifest plus meta.json and features.json; fresh instantiate still clears references, profile and authorization."
+    },
+    {
+      "id": "fresh-request-assets-and-persistent-paid-recovery",
+      "status": "implemented-offline-verified",
+      "scope": "Per-request fresh handles, admission/atomic unknown barrier, query/refill/download scheduling and bounded retry beyond three network errors; no duplicate paid POST."
+    },
+    {
+      "id": "complete-output-native-pose-evidence",
+      "status": "implemented-offline-verified",
+      "scope": "Actual full decoded clock, last frame, per-role native ROI and every owned source/native output pair. Prepared evidence never approves visual coverage."
+    },
+    {
+      "id": "explicit-measured-source-pose-map",
+      "status": "implemented-offline-verified",
+      "scope": "Default strictPTS unchanged; explicit source/input/output/evidence/mapping bindings, same-shot cuts, start/middle/end observations and visual mapping digest; remap clears old visual."
+    },
+    {
+      "id": "independent-canonical-rgb-pts-proof",
+      "status": "implemented-offline-verified",
+      "scope": "All canonical PNG RGB bytes and frame PTS/duration checked by independent FFmpeg/ffprobe; mutable plan/images/video rejected, visual remains pending."
+    },
+    {
+      "id": "pyav18-side-data-and-standalone-review-runtime",
+      "status": "implemented-offline-verified",
+      "scope": "Real H264 SEI/display-matrix data preserved for both legacy enum-key and modern SideData-object iteration; standalone Chinese ZIP/helper/deps runtime inherited without overwriting old skill versions."
+    },
+    {
+      "id": "source-only-candidate-evidence-boundary",
+      "status": "implemented-offline-verified",
+      "scope": "Candidate helper rejects reusable source trees; build rejects known current-run evidence kinds; legitimate neutral source constraints retained."
+    },
+    {
+      "id": "app-specific-long-input-receipts",
+      "status": "implemented-transport-observed-offline-verified",
+      "scope": "Exact per-app discrete frames, including dual141/187/199/211, from accepted/downloaded production receipts. Not evidence for new shot visual quality; pilot and complete10second limit remain."
+    },
+    {
+      "id": "complete-runtime-manifest-and-outgoing-history",
+      "status": "implemented-offline-verified",
+      "scope": "Runtime whitelist must be fully hash-covered; temporary Git negative checks reject removed forbidden intermediate commits; no other skill/media/private data publication."
+    },
+    {
+      "id": "optional-local-comfyui-workflow",
+      "status": "implemented-offline-verified",
+      "scope": "User API graph inspection, explicit runtime bindings and installed node schemas; preserves model/LoRA choices; unsupported UI/dynamic widgets explicit."
+    },
+    {
+      "id": "local-serial-durable-recovery",
+      "status": "implemented-offline-verified",
+      "scope": "Endpoint-wide SQLite single slot, external queue wait, UUID/client/graph reconcile, durable successful receipts, strict selected saver and selection-specific candidates; no automatic visual pass."
+    },
+    {
+      "id": "source-neutral-local-template",
+      "status": "implemented-offline-verified",
+      "scope": "Independent mixed-reference ZIP reuse; private workflow overrides removed from new packages and new runs only; original installed skill preserved."
+    },
+    {
+      "id": "long-target-free-passthrough",
+      "status": "implemented-offline-verified",
+      "scope": "Generation ten-second cap applies only to generated owners; long unchanged target-free shots keep source ownership without generation."
+    },
+    {
+      "id": "local-validated-numeric-history-recovery",
+      "status": "real-service-reproduced-and-regression-verified",
+      "scope": "ComfyUI in-place FLOAT coercion permits exact int/float value equivalence while UUID, client ID, full graph structure, boolean/string types and changed values remain strict. Recovery never reposts."
+    },
+    {
+      "id": "windows-vhs-relative-output-recovery",
+      "status": "actual-gpu-download-recovered-and-regression-verified",
+      "scope": "Normalize Windows relative subfolders before traversal/root/drive checks and use view HTTP download, never server fullpath. First real local output fully decoded; visual quality remains separately unapproved."
+    },
+    {
+      "id": "identity-policy-risk-pilot-scope",
+      "status": "implemented-offline-verified",
+      "scope": "Current identity/backend/risk scopes, actual single-window promotion, stale pilot input rejection; historical profile flags never approve new references"
+    },
+    {
+      "id": "window-scoped-input-approvals",
+      "status": "implemented-offline-verified",
+      "scope": "Related source shots/roles/window/ref signatures only; full global source/plan validation retained; unchanged semantics/projection reviews preserved"
+    },
+    {
+      "id": "layered-technical-and-evidence-cache",
+      "status": "implemented-offline-verified",
+      "scope": "Checker/backend/video-bound full decode and artifact manifests reused; corrupt/missing evidence rejected and visual remains pending"
+    },
+    {
+      "id": "bounded-owner-assembly-and-mux-recovery",
+      "status": "implemented-offline-verified",
+      "scope": "Sequential candidate-group decode preserves VFR/SAR/color/rotation/audio; representative encoding smoke and verified complete silent reuse, never partial continuation"
+    },
+    {
+      "id": "readonly-rh-cost-audit",
+      "status": "implemented-offline-verified",
+      "scope": "Project/account/task-ID deduped saved top-level charges, unknown/conflicting/parent-child bills distinguished; hypothetical savings never measured savings"
+    },
+    {
+      "id": "explicit-dedicated-runtime-revision",
+      "status": "implemented-offline-verified",
+      "scope": "New standalone Chinese skills inherit runtime tools; explicit --upgrade-runtime creates a new immutable revision and clears future-run approvals"
+    },
+    {
+      "id": "local-runninghub-workflow",
+      "status": "implemented-offline-verified",
+      "scope": "Local custom H3 workflow adapter with factory-bound semantic/projection/authorization/pilot gates, immutable workflow snapshot, 24fps 5mod17 clock, shared account ledger and unknown-submission recovery. Connection checked read-only; no actual generation in local setup."
+    },
+    {
+      "id": "lan-native-h3-default",
+      "status": "implemented",
+      "scope": "Default local/LAN ComfyUI native API; explicit RFC1918 endpoint keys; source-preserving native H3 API graph/profile builder and installed dynamic node schemas. No automatic identity quality approval."
+    },
+    {
+      "id": "explicit-quality-duration-and-regeneration-only",
+      "status": "implemented-offline-verified",
+      "scope": "Explicit numeric quality<=1:15seconds; >1 or unspecified:10seconds. Full clock and source limits, H3 reference cap binding, regenerated-window repairs only; no overlay/face-patch CLI."
+    },
+    {
+      "id": "bound-source-runtime-launcher",
+      "status": "implemented",
+      "scope": "Actual skill/source/production digest and capability binding at preparation, pre-submit, review and assembly; explicit legacy adoption/migration; original-ID recovery remains available.",
+      "validation": "Offline regression behavior only; no new generated-film or GPU quality approval."
+    },
+    {
+      "id": "purpose-scoped-model-image-slots",
+      "status": "implemented",
+      "scope": "Identity/product/background/continuation images preserve real upload order and node bindings; current human roles stay distinct from Picture count; scoped byte changes revoke affected windows only.",
+      "validation": "Offline regression behavior only; no new generated-film or GPU quality approval."
+    },
+    {
+      "id": "restricted-authorized-caption-audio-postproduction",
+      "status": "implemented",
+      "scope": "Explicit user caption/audio scope after passed base; exact literal text/font/position/color/time/safe regions and bound track/excerpt/gain/fades; canonical RGB/clock/audio chain proof plus separate actual visual/listening review.",
+      "validation": "Offline regression behavior only; no new generated-film or GPU quality approval."
+    },
+    {
+      "id": "requested-stage-approval-contract",
+      "status": "implemented",
+      "scope": "Only explicit user-requested preview/listening stages gate submission; approvals bind current asset SHA/configuration/scope/message/actor; user delegated approval remains limited to its declared scope.",
+      "validation": "Offline regression behavior only; no new generated-film or GPU quality approval."
+    },
+    {
+      "id": "monotonic-source-preserving-upgrade-lifecycle",
+      "status": "implemented",
+      "scope": "Revision increases above registry history/removals/high-water and installed source versions; distinct factory/runtime/template identities; retain source evidence/declarations/custom extensions and required capabilities.",
+      "validation": "Offline regression behavior only; no new generated-film or GPU quality approval."
+    },
+    {
+      "id": "scoped-exact-artwork-master",
+      "status": "implemented",
+      "scope": "Current master SHA, physical product/panel, characteristics/anchors/state correspondences and explicit strictness; exact failures cannot be silently relaxed.",
+      "validation": "Offline regression behavior only; no new generated-film or GPU quality approval."
+    },
+    {
+      "id": "current-visible-reference-identity",
+      "status": "implemented",
+      "scope": "Review binds actual reference coverage and source-visible parts, including arm/wrist/palm/fingers/cuffs/contact; unobservable face remains not_assessable and attributes are not inferred from gender.",
+      "validation": "Offline regression behavior only; no new generated-film or GPU quality approval."
+    },
+    {
+      "id": "current-output-delivery-state",
+      "status": "implemented",
+      "scope": "Base technical/visual, preview, known issues, provisional and final user acceptance stay separate; unresolved hard issues need specific current-output user exceptions before final-master readiness.",
+      "validation": "Offline regression behavior only; no new generated-film or GPU quality approval."
+    },
+    {
+      "id": "source-first-physical-authoring",
+      "status": "implemented",
+      "scope": "Actual source SHA/frame count, known product panels/connections and nine source capture criteria; pending drafts, full-decode validation and explicit activation. Unknown necessary relations block activation; existing legacy facts remain compatible. Activation does not approve inputs, migrate bindings or authorize generation."
+    },
+    {
+      "id": "structured-native-state-consistency",
+      "status": "implemented",
+      "scope": "Owner-scoped declared physical states, actual source/output native RGB PNG bindings, current input/composition and adjacent transition observations; missing, stale or mismapped proof is rejected. Evidence export is pending and does not infer visual correctness."
+    },
+    {
+      "id": "source-geometry-and-material-gap-repair",
+      "status": "codex-orchestrated-with-runtime-contracts",
+      "scope": "Current source geometry reaches product prompts; repeated physical-relation failures or unknown necessary source views trigger review of existing raw views and only the needed supplemental material. New references condition full-window generation; product pixel patches and automatic perceptual passes remain disabled."
+    }
+  ],
+  "release": "v1",
+  "runtime_version": "v1",
+  "available_capabilities": [
+    "runtime-binding",
+    "scoped-physical-contract",
+    "multi-purpose-references",
+    "conditional-production-policy",
+    "restricted-postproduction",
+    "structured-consistency"
+  ],
+  "validation_scope": {
+    "new_release": "1.9 offline source-authoring/state-proof/integration checks; exact counts and package results belong to the current delivery report",
+    "new_movie_or_gpu_quality_approval": false,
+    "automatic_perceptual_pass": false
+  },
+  "maintenance_1_8_validation": {
+    "runtime_tests": 441,
+    "new_generation_tasks": 0,
+    "new_film_visual_acceptance": false
+  },
+  "maintenance_scope": {
+    "release": "v1",
+    "local_only": true,
+    "github_sync": false,
+    "existing_dedicated_skills_modified": false,
+    "existing_media_modified": false
+  },
+  "maintenance_1_9_validation": {
+    "runtime_tests": 485,
+    "new_consistency_tests": 44,
+    "independent_new_source_forward": "passed",
+    "production_generation_tasks": 0
+  },
+  "display_name": "视频复刻工厂",
+  "upstream_attribution": "https://github.com/T8mars/video-replacement-skill-factory-T8",
+  "v1_release_validation": {
+    "release": "v1",
+    "source": "Renamed derivative of local factory1.9.0; upstream attribution in ORIGIN.md",
+    "runtime_tests": 485,
+    "production_generation_tasks": 0,
+    "new_film_visual_acceptance": false
+  }
+}

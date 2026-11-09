@@ -1,0 +1,4 @@
+# Runtime signatures are calculated over exact source bytes.
+* -text whitespace=cr-at-eol
+*.md whitespace=-blank-at-eol,cr-at-eol
+.githooks/pre-push text eol=lf

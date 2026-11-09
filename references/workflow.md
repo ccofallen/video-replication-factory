@@ -1,0 +1,112 @@
+# 制作及复用
+
+默认使用已配置的本地／局域网 ComfyUI/H3 原生 API，先读 [本地接入](local-comfyui.md)。本地按同服务共享账本串行，RunningHub 仅在用户指定时使用，以下云端3并发和应用参数只用于 RH；源分析、完整验收与组装合同共用。无替换目标的长镜头直接保留，不受生成时长上限限制。
+
+分段规则：按原片实际镜头、已核自然动作及机位阶段切分，每段保留自己的原始长度；不设置固定5秒默认。需要生成的单段源区间与完整生成视频均按明确画质数值执行15／10秒上限，生成时长包含context、preroll、慢速扩展及补齐。超过上限的连续长镜在核对过的动作阶段边界拆分，接回后仍保持原运动连续，不新增切镜。
+每次制作使用新run目录，安装不启动云端。需要Python3.10+、PyAV、Pillow及PATH中的ffmpeg/ffprobe；媒体库未安装到当前Python时以 `--deps` 指向本机实际依赖目录。移机重新定位运行时，不把旧制作项目作为输入。有本机解码矛盾证据时使用 `--scalar-cpu`，该设置作用于当前PyAV和派生音轨的FFmpeg子进程。
+
+媒体解码、源→生成帧对应、连续帧和原尺寸风险审查优先在后台完成。用户明确要求后台、不操作其电脑时，不调用桌面播放器或注入鼠标/键盘；保存这一偏好到本次项目配置。后台证据按当前文件SHA、PTS、帧编号及实际工具显示尺寸绑定，Codex亲看完整连续帧，分别记录转头、表情、遮挡、靠近及接点观察，可据此完成输入语义/投影审批并继续生产。
+
+完整连续帧审核与实际原速播放分开记录。只解码或看了连续帧，就写实际连续帧覆盖和actual_original_speed_playback_performed=false，不虚构播放器、速度或动态通过。优先使用能后台提供真实播放证据的媒体工具；最终要求的整片动态验收尚无证据时保持pending，继续完成独立的生成、逐帧修复、技术检查及模板工作。缺少桌面播放器复核不应阻止已实际审查的输入进入授权生产，也不应放宽最终ready门槛。
+
+## 恢复与避免重复工作
+
+当前完整输出、原尺寸固定ROI、实测姿态映射及独立RGB/PTS证明工具见[production-reliability.md](production-reliability.md)。完整输出观察不按输入帧数截断，实际所见再写observed；任何证据准备均不自动visual passed。新映射使旧视觉失效，当前候选证据与源evidence/assets分开，专属包只冻中性源事实。
+
+先按完整原SHA查已安装模板和本次run状态。相同原bytes的已核源分析、角色/镜头/相邻动作阶段从模板复用，不重做首次工厂研究；新剪辑才建立新源分析。重启先恢复已知taskId和已完成文件，不重新POST。每次实看通过立即保存当前输入、输出、owner及覆盖绑定；它们未变时继续剩余步骤，输入或文件变化才撤销相关审核。新身份、新候选和新组装成片仍分别验收。
+
+单窗不合格先核图像顺序/身份范围、导引整幅构图、源相邻动作阶段、context/prefix/scale/owner和接口权限，再选择有针对性的修复；重复失败升级策略，不循环相同提示。同一物理关系再次失败或源状态看不清时，先查[结构资料缺口](object-consistency.md)：复用已有原片视图，只补缺失的面、连接或状态证据，明确新资料改变了什么，再重审相关输入；没有新增依据时不继续仅换措辞重投。其余已过窗口冻结，只修当前窗与必要接点。首次试窗覆盖最容易漏换的角色正脸和关键动作；为该窗准备有实质差异且各自已审批的候选，RunningHub以3个并行比较，本地依次比较，选中实际过关的版本后再扩批。保存本源特有的失败条件、已实测修复及适用范围到template-constraints，下一次先读取，不把旧人物/旧任务当成源事实。
+
+## RunningHub 3并发与收尾修复
+
+有已授权、已审批的待生成工作时，同账户在途目标为3，上限为3。普通批次优先3个待做窗口；只剩1～2个不合格范围时，组成3个候选的修复批次。一个问题窗可用3个不同方案；两个问题窗可先分配2+1，并在槽位释放后补充另一窗的不同方案。根据坏帧选择实际不同的身份/表情资料、已审源构图导引、运动阶段描述、合法时钟或接口策略；每个方案保存具体假设、预期改进和独立input digest。同一输入重复抽取不作为3个不同方法。
+
+每个修复候选建独立run，保留完整源分析、owner计划及同一私有账户账本，queue只列本次已批准的修复窗。新路由的各run只开放自己的代表性pilot；选中候选通过实际画幅、身份、动作和完整保留区间审核后，主run才提升该路由质量证据。已有/未知任务占用全账户槽位，先恢复原ID再补新任务。用一个恢复调度器维护这些run，空槽出现便调度下一项已审批工作；队列忙按冷却等待，不为保持数字而重复POST。
+
+runner先轻量查询、补已审批执行位、再下载，避免长传输让生成槽闲置。新的付费请求重新上传临时素材，已知taskId恢复不重传或重POST。账户SUBMITTING/UNKNOWN先对账、停止新增；临时查询/下载超过3次继续退避等待，不变成新的生成。连续执行失败3次诊断与画面无限择优分别处理。
+
+Codex负责准备方案、完成语义/投影审批并维护3个工作槽，runner提供共享账本、原子上限和恢复保护，不会自动发明修复方法或批准输入。输入尚待审批、权限失败、未知提交或服务端资源忙时记录实际原因和恢复步骤。全部范围通过后停止新增，已受理任务保留原ID恢复至终态。候选的native风险帧、原速完整owner区间与接点仍分别验收；速度目标不降低质量门槛。
+
+## 中文名称
+
+每份新专属技能由Codex按已核源内容自动拟定中文显示名，如“客厅双人对话与拥抱·换角复刻”；用户给了名称则用用户名称。中文名进入SKILL描述、标题、UI显示/默认提示和manifest，最后从同一版本生成ZIP。调用 `build-skill --display-name "中文名称"`，内部SHA标识和文件夹保持稳定，便于去重。遗漏参数时脚本也保证中文回退名，但正式交付前仍应使用准确的内容名。已有同源技能默认保留原名称与用户修改，不因复用自动改名。
+
+```text
+python scripts/factory.py ingest --video <原片绝对路径> --project <新run> --deps <PyAV依赖目录>
+```
+
+源副本和source.json只读。看全片，再核所有自动候选切点、溶解/闪光/快速运动，填analysis中中性slot、实测shot与事件并保存观看证据。自动首中尾/候选图不能代替源动态查看；源文字记source_data。来源审核真实完成才status=passed。
+
+### 新源的结构模式
+
+新源中需要保留或改变可运动产品、开合结构、孔/把手、层叠或附着印刷时，先读[源结构与一致性](object-consistency.md)，再准备首个试窗。由实际原片建立稳定物理面、内外关系、局部方向、连接和状态清单，写入本源草稿；本次品牌、图案母版和目标材质仍放运行合同。完成真实源观察后validate/activate，初始化目标，再用已有任务授权完成必要的运行绑定迁移。产品输入使提交前必须有匹配本源的已激活事实；prepare可以保留待补项目，不据此提交生成。
+
+候选存在关键状态检查时，用`factory.py consistency-evidence`导出当前源/候选的原尺寸配对状态。每个状态和过渡实际审看后再填写观察，最终组装也要核同一组要求；详细字段和命令仅在[结构指南](object-consistency.md)维护。不要把本轮候选证据放进源assets/evidence。
+
+参考图复制进本次run `refs/`，同人多图分组，为每slot写identity_en、coverage与未知属性；face-only填写face_identity_en。源事件用 `{{A}}` 等占位，绝不全局替换旧人物名。对调只更换slot→ref。多视图/白底/像素质感/参考姿势和无关扇子不移入场景。
+
+真实切镜优先，极短镜保留；长镜在动作稳定状态切窗，上下文重叠不重复拥有目标帧。plan所有源owner必须恰好覆盖一次。默认plan可按实测改，长镜内部开窗写实际opening state context_description_en；context内可见任何目标身份都绑定。
+
+参考与源片跨画风时先解决身份资料的一致性。源为实拍而参考为像素/插画，保留实拍的任务可先用图像编辑工具将每个人转为单人实拍身份导引，亲看脸型、眼色、发型、服装和成人比例后再生成视频。记录这是原身份线索的实拍解释；不声称像素图证明了精确真人脸。原图和派生图留本次run，专属模板只保存这条有条件的策略。双人物首窗应包含容易漏换的角色正脸；单个过肩镜头通过不能证明两人所有角度都通过。
+
+像素脸与实拍脸混用、原人物未替换或新增第三人时，不反复提交同一输入。明确源演员→目标槽位从首帧原位替换，检查本窗引用顺序；把容易被吞掉的极短反应镜头独立成窗，接口需要的尾帧补齐仅用于生成，不进入owner。依旧逐帧保留原反应和真实切点。
+
+```text
+python scripts/factory.py validate-analysis --project <run>
+python scripts/factory.py prepare --project <run> --deps <deps>
+```
+
+首次prepare生成pending语义。Codex查看全部成稿并对源片/参考核对动作时间、人数、方向、外貌范围和局部编号后，再 `prepare --approve-semantics`。该开关记录已完成的审稿，不负责代替判断。job.production_authorized依据人类本次实际制作请求设true；只做工厂时false。
+
+显式VFR/旋转派生记录source_projection采样表、丢失/重复及时间量化。`--approve-projection`只在Codex查看派生参考并对源动作确认可接受后使用，独立于语义审核；不把恢复原PTS说成丢失信息可逆。手改长镜plan后用 `refresh-plan` 重建表再prepare。没有目标角色的空镜passthrough原片owner，不付费生成，成片仍全片QA。单/双人legacy按每窗实际身份数选择对应已证应用或明确profile_override。
+
+新case代表窗queue pilot=true，按上面的独立比较run规则比较不同实际生产候选（RunningHub并行3个，本地串行）；生成文档参数不证明换角视觉。选中首窗技术+视觉过关后，主run的job.profile.quality_evidence设case-verified并记具体证据，同时更新queue对应profile的QA字段。纯QA推进排除在生成digest之外，重算确认已有输入未变，再扩批。手修提示词或编译器升级后不要盲目prepare覆盖已通过的输入；未修改编译合同的正常run仍可prepare刷新。实质输入/参数变动失效旧task/review，正确归档对应revision。
+
+混合single/dual或其他profile route各自保留代表窗pilot门槛，RunningHub独立比较候选共享总并发3，本地同服务共享串行位；使用window.profile_override的路由，在该override更新质量证据，不能只更新全局job.profile。再次prepare相同prompt字节保留mtime，不因QA进度失效已审核版本。
+
+```text
+python scripts/rh_runner.py tick --project <run>
+python scripts/rh_runner.py status
+```
+
+tick一次先恢复中央账本所有已知任务，再提交本run剩余额度内的窗口。Codex持续调度、查看、修复直到交付，用户不用手动跑。所有项目同一实际账户使用同一私有账本/alias，不能每项目各建limit3。
+
+候选在 `candidates/<window>/<attemptUUID>/output.mp4`，不可变。SUCCESS后用：
+
+```text
+python scripts/factory.py inspect-candidate --project <run> --window-id <window> --task-id <ID> --candidate <run内相对MP4> --deps <deps>
+```
+
+它实际解码、导出原尺寸证据、提出源→候选帧映射，视觉和时间映射默认pending。Codex对源事件核对映射/重采样损失，动态及原尺寸查看后写reviews；禁止猜标准H3输出24fps。
+
+用户说停用stop停止新增，仍记录云端已跑状态；用户已说继续或修好凭据可resume，连续技术计数重置而历史attempt保留。UNKNOWN对账拿到官方taskId才recover-unknown，不重POST。
+
+```text
+python scripts/factory.py review-guard --project <run>
+python scripts/factory.py assemble --project <run> --output <run内新文件> --deps <deps>
+python scripts/factory.py review-guard --project <run> --final
+python scripts/factory.py build-skill --project <run> --skills-root <CODEX_HOME/skills> --status ready --display-name "依据原内容拟定的中文名称"
+```
+
+assemble默认成片视觉pending，完成完整技术验证后看全片/接点填写final，再guard/build ready。未完成可以先draft，并继续制作。专属模板复制原源、中性analysis/plan策略、自足scripts/references；本次refs、task私有URL/ledger和候选不进模板。
+
+本次自由文本运行假设、失败记录和生成审核放在私有制作证据，公共evidence只保留原片来源事实及有适用条件的复用规则。验证安装包时实际解ZIP，再用包内脚本在独立子进程instantiate；仅copy2目录验证无法发现ZIP时间戳问题。新job应为空身份、空profile且授权false，不能继承上一期请求。
+
+未来调用专属skill：
+
+```text
+python <专属skill>/scripts/factory.py instantiate --skill <专属skill绝对目录> --project <新的run>
+```
+
+中性原槽位动作不变，填新job身份并继续生产/QA。同源复用模板，新剪辑/原bytes变动新模板。draft→ready在新revision升级，旧版保留；安装中断recover-install对账。ZIP只本地生成，不外发。
+
+
+legacy原片竖屏时，在首次prepare前按backends.md核应用实际ResolutionSelector节点，配置匹配源展示比例的resolution_selector。不能依赖图片宽高或“vertical”提示词切换云端工作流画幅。首窗实际画幅不符即拒绝，不扩批；整个源片说明不提前引入尚未进入当前窗口的道具，提示词按当前context可见状态编译。
+
+
+修复prompt/引用及queue签名时，与本机唯一调度器串行操作：暂停本机新增调度，等正在执行的tick完成，再以完整审稿后的prompt、签名、digest和queue一致版本更新；恢复时先核全部当前输入和已知任务。避免调度器在文件与queue更新之间读取旧digest并安全停机。已经受理的任务只恢复原ID，不因这种本机中间状态重新POST；这项维护暂停不要求用户重新授权。
+
+首期新证据修正了源事件事实时，在专属模板中保存纠正后的中性源事件与相邻帧依据，并更新对应analysis/plan摘要及包manifest。不要改动仍有云端任务的冻结制作合同；源事实修订与当前候选生成历史分别保留。新包实际解包、独立instantiate检查后，下次使用纠正后的源事实。
+
+
+建立独立局部比较run时，可以保留完整源分析和全部owner计划，但queue只包含当前已批准的修复窗。tick会预检queue中的每个非passthrough条目；不要把其他尚未审批的克隆窗塞入queue，即使暂时不打算提交。局部比较的审核只证明对应父候选，最终仍回到完整制作run核全部owner、合成父映射和接点，再运行完整review-guard；不让局部通过伪装整片通过。

@@ -1,0 +1,460 @@
+{
+  "name": "video-replication-factory",
+  "version": "v1",
+  "created_at": "2026-11-09",
+  "purpose": "Deliver a character replacement film and a standalone reusable skill for each new source video.",
+  "schema_version": 1,
+  "research": {
+    "bilateral_rounds": 20,
+    "completed": true
+  },
+  "runtime": {
+    "python": ">=3.10",
+    "media_libraries": [
+      "PyAV",
+      "Pillow"
+    ],
+    "independent_decode": "ffmpeg",
+    "default_account_alias": "default",
+    "result_recovery": "curl, verified HTTPS DNS consensus for the specifically observed COS host; no system DNS/TLS changes"
+  },
+  "configuration": {
+    "backend_profiles": "assets/backend-profiles.json",
+    "default_global_concurrency": 1,
+    "visual_retry_limit": null,
+    "consecutive_technical_failure_limit": 3,
+    "credentials": "CODEX_HOME/private/r2va-character-replacement/api_key.txt",
+    "ledger": "CODEX_HOME/private/video-replacement-skill-factory/tasks.sqlite",
+    "dedicated_skill_naming": {
+      "display_language": "zh-CN",
+      "stable_id": "r2va-video-<source-sha-prefix>",
+      "cli": "build-skill --display-name",
+      "scope": "new source-specific skills; existing user names preserved"
+    },
+    "segmentation": {
+      "boundary": "measured source shots and reviewed natural action phases",
+      "hard_max_source_segment_seconds": {
+        "quality_le_1": 15,
+        "quality_gt_1": 10,
+        "unspecified": 10
+      },
+      "hard_max_complete_generation_seconds": {
+        "quality_le_1": 15,
+        "quality_gt_1": 10,
+        "unspecified": 10
+      },
+      "fixed_default_duration": null,
+      "generation_cap_includes": [
+        "context",
+        "preroll",
+        "source-time dilation",
+        "tail padding"
+      ],
+      "short_shots_keep_original_duration": true,
+      "quality_basis": "Explicit numeric quality_level only; never infer from pixels"
+    },
+    "parallel_production": {
+      "account_active_target": 3,
+      "account_active_cap": 3,
+      "normal_batch": "three approved pending windows",
+      "remaining_one_or_two_failed_windows": "three distinct reviewed repair hypotheses in isolated runs",
+      "orchestration": "Codex prepares hypotheses and approvals; one dispatcher and one shared private ledger",
+      "new_route": "representative-window independent pilots; route quality promotion still requires actual QA",
+      "busy_queue": "wait at least sixty seconds; recover known task IDs; unknown submissions retain slots",
+      "passed_windows": "freeze unchanged accepted versions",
+      "all_passed": "stop new submissions; recover already accepted tasks",
+      "input_and_visual_gates": "unchanged; no automatic hypothesis creation or visual approval"
+    },
+    "media_review": {
+      "preferred_execution": "background decoding, PTS mapping and personally viewed native contiguous frames",
+      "user_background_only": "no desktop player or mouse/keyboard input",
+      "input_approval": "may use actual complete source-frame/PTS and identity observations with honest loss disclosure",
+      "separate_original_speed_evidence": true,
+      "final_ready_dynamic_gate": "unchanged; missing evidence stays pending"
+    },
+    "scalar_cpu_scope": "Current WindowsPyAV and derived-audio FFmpeg subprocess; default otherplatform path unchanged.",
+    "upload_reuse": "Fresh per paid request; same-byte de-duplication only within one request; known task recovery never reuploads",
+    "candidate_clock": "Strict nominal PTS by default; explicit current-evidence-bound measured source poses when actual model action clock differs",
+    "temporary_network_recovery": "Known-ID query/download retries persist with bounded backoff up to300seconds; distinct from execution failure count",
+    "source_template_boundary": "Known current-run candidate/proof/delivery artifact kinds rejected from reusable source evidence",
+    "local_comfyui": {
+      "workflow": "User-supplied API graph with explicit SHA and actual node/field bindings; no UI widget guessing",
+      "endpoint": "Explicit RFC1918 IPv4 or loopback HTTP; serial per canonical host/port",
+      "ledger": "CODEX_HOME/private/video-replacement-skill-factory/comfy.sqlite",
+      "frame_capabilities": "Explicit workflow fps and discrete counts or grid; no universal 24fps/17-grid assumption",
+      "recovery": "attempt/client/graph-bound original prompt IDs and durable success receipts; no uncertain resubmission",
+      "template_boundary": "No private local workflow/overrides; new-run migration keeps original skills unchanged",
+      "gpu_visual_verification": false,
+      "native_h3_adapter": "h3-profile: run-contained API graph, explicit 1..9 images and one source video, installed dynamic schemas"
+    },
+    "pilot_scope": "Current source, role-slot identities, appearance policy, backend and reviewed source risks; profile history alone never batches new identities",
+    "input_approval": "Per-window owner/context source facts and actual related identities; full source/plan validity remains global",
+    "assembly": "Bounded sequential owner decode, actual source PTS/SAR/color/audio, same-path encoding smoke, complete silent proof and mux-only recovery",
+    "cost_audit": "Read-only project/account receipts; task-ID deduplication, parent/child overlap detection, unknown fields preserved; no currency conversion",
+    "default_backend": "local-comfyui",
+    "modification_method": "regenerate",
+    "launcher": "python scripts/run_skill.py --project RUN factory prepare",
+    "structural_repair": "Source-first physical panels/axes/connections/state inventory; repeated relation failures or unresolved necessary views trigger scoped material-gap diagnosis before another generation"
+  },
+  "validation": {
+    "cloud_generation_performed": true,
+    "cloud_visual_quality_verified": true,
+    "offline_tests": "scripts/test_factory.py; scripts/test_runner.py; scripts/test_identity.py; scripts/test_candidate_review.py; scripts/test_comfy_workflow.py; scripts/test_comfy_runner.py; scripts/test_comfy_http.py; scripts/test_production_ops.py; scripts/test_reliability_upgrade.py",
+    "offline_test_count": 309,
+    "media_and_template_tests": 70,
+    "runner_tests": 75,
+    "independent_forward_test_completed": true,
+    "independent_defect_rechecks_passed": 2,
+    "post_update_template_checks": 3,
+    "preroll_preserves_source_owners": true,
+    "production_trial_status": "Corrected photographic portrait30.041667second whole721frame film accepted by actual human1x original-reference likeness/no-obvious-issues review.1297originalAACpackets preserved. Rejected old identity version stays failed; new identities/routes still require independent pilots and current QA.",
+    "source_time_scale_verified_offline": true,
+    "cloud_pilot_visual_verified": true,
+    "automatic_download_recovery_tests": 8,
+    "independent_download_rechecks": 28,
+    "zip_extract_subprocess_reuse_verified": true,
+    "source_template_neutralization_verified": true,
+    "window_identity_override_isolation_verified": true,
+    "final_report_contract_verified_offline": true,
+    "known_task_failed_busy_keeps_original_id_verified_offline": true,
+    "current_release_factory_tests": 70,
+    "chinese_display_name_cli_zip_subprocess_verified": true,
+    "cloud_visual_quality_scope": {
+      "source_sha256": "75f4a28f357bdac5dc224141eefd857a95d5852cc4fca52ad28efac0046231b1",
+      "final_sha256": "7edb5f17fef803f615d93139b3df2232e5bbdc960c79189479bda8f97e578c61",
+      "frames": 294,
+      "seconds": 12.25,
+      "rendered_with": "1.2.10",
+      "scope": "One actually reviewed photographic two-person film; future cases and new identities still require actual review."
+    },
+    "current_release_runner_tests": 75,
+    "legacy_portrait_canvas_controls": {
+      "offline_tests": 11,
+      "production_pilot_status": "actual-1088x1920-portrait-confirmed-identity-and-extra-prop-rejected",
+      "previous_actual_result": "unpublished115-only aspect accepted but ignored; landscape rejected",
+      "scope": "Both published selectors applied. Direction verified; exact9:16 quantization repair, identity, props and complete-film QA remain separately required.",
+      "actual_output": {
+        "width": 1088,
+        "height": 1920,
+        "fps": "24",
+        "frames": 107
+      },
+      "two_image_published_controls_verified": true,
+      "two_image_actual_cloud_visual_verified": false,
+      "two_image_production_pilot_status": "actual1088x1920portraitconfirmed-identityleak-and-literalphoto-insertion-rejected"
+    },
+    "explicit_source_and_identity_reference_binding_verified_offline": true,
+    "current_portrait_pilot_review": {
+      "scope": "Historical initial pilot identity verdict remains revoked; corrected complete film recorded separately below"
+    },
+    "current_release_note": "1.8.0 scoped production contracts and source-preserving runtime/revision guards; current maintenance is offline and source-only, with no new production generation or visual/listening approval.",
+    "identity_pipeline_tests": 17,
+    "corrected_portrait_quality_scope": {
+      "frames": 721,
+      "seconds": "721/24",
+      "canvas": [
+        720,
+        1280
+      ],
+      "source_fps": "24",
+      "face_swap_app_id": "1931791712199618561",
+      "measured_app_output_fps": "8",
+      "original_audio_packets": 1297,
+      "complete_technical": "passed",
+      "actual_original_speed_reviewer": "human-user",
+      "original_reference_likeness": "accepted",
+      "scope": "One specific complete photographic single-person case. No automatic future quality or multiple-face assignment claim."
+    },
+    "portable_local_detail_smoke": {
+      "actual_frames": 2,
+      "RGB_PTS_and_unchanged_body": "passed",
+      "visual": "pending; smoke is not film approval"
+    },
+    "current_maintenance": {
+      "status": "all-local-validation-passed",
+      "cloud_calls": 0,
+      "real_comfy_gpu_calls": 0,
+      "counts": {
+        "factory": 70,
+        "runninghub": 75,
+        "identity": 17,
+        "candidate_review": 19,
+        "local_workflow": 29,
+        "local_runner": 37,
+        "local_http": 11,
+        "publication": 10
+      },
+      "functional_regressions": 258,
+      "all_regressions": 268,
+      "evidence_sha256": {
+        "factory": "cb472afd86725fbfe156ebdc1a0523aeee8f48e800993b42a0f7e40b97344f13",
+        "runninghub": "a59eb8aa4339e312108c81a2563d26821c6063d56a8a0c1f836bfcd541837d7b",
+        "identity": "d11138a5cfd369224aec55260c30e5772738ba4ea8c78073cfc8ed3b333a3a0a",
+        "candidate_review": "330185f5e0a23aa7734ee7a32bec7e31c82de1dd835ab5a53921e67183321114",
+        "local_workflow": "124a7f4d611ecb310ebf617f3c02fbb6bb54b7d6c95ae4d2050a1639ead861ab",
+        "local_runner": "df7fce19a59737d16edcc6661308e5e49b072a5028d4eec1400ba272061de715",
+        "local_http": "3392210da1c215e00e71dcac1ba6d9cd203dc1aa216dde37927c89a7b67d0aa6",
+        "publication": "e3a2c56d8178b1715d24660c2fd44b3ff6bdc49b1413f12a9445cf6868d5495e"
+      },
+      "independent_extracted_mixed_reference_zip_reuse": "passed",
+      "scope": "Synthetic decoded media, offline runner, simulated HTTP and independent extracted ZIP CLI only; actual H3 model and new identity fidelity require production pilot/QA",
+      "version": "1.4.0"
+    },
+    "candidate_review_tests": 19,
+    "publication_guard_tests": 10,
+    "previous_maintenance": {
+      "status": "all-local-validation-passed",
+      "cloud_calls": 0,
+      "historical_cloud_quality": "Existing scoped cases retained; this maintenance makes no new cloud visual approval claim",
+      "counts": {
+        "factory": 70,
+        "runner": 75,
+        "identity": 17,
+        "candidate": 19,
+        "publish": 10
+      },
+      "offline_total": 181,
+      "publication_total": 10,
+      "standalone_zip_and_deps_subprocess": "passed",
+      "negative_outgoing_git_history": "passed",
+      "source_only_evidence_and_stale_visual_rejection": "passed",
+      "app_specific_long_input_transport_receipts": "observed previously accepted/downloaded; pilot remains required",
+      "new_cloud_calls": 0,
+      "pyav_api_compatibility": "Real H264 SEI/display-matrix data normalized from both legacy enum-key and modern object iteration; no metadata discarded.",
+      "github_initial_compatibility_failure": "1.3.0 Linux old-PyAV enum-key iteration identified and fixed in1.3.1; current remote verification follows publication."
+    },
+    "local_comfyui_workflow_tests": 34,
+    "local_comfyui_runner_tests": 41,
+    "local_comfyui_http_tests": 12,
+    "local_numeric_recovery_patch": {
+      "real_service_issue_reproduced": true,
+      "local_runner_regressions": 39,
+      "scope": "Integer/float exact-value representation changes only; changed values, booleans, strings and graph structure rejected. Actual media and task receipts remain private."
+    },
+    "local_windows_output_recovery": {
+      "real_gpu_success_recovered": true,
+      "real_single_case": {
+        "frames": 90,
+        "seconds": "15/4",
+        "native_canvas": [
+          288,
+          512
+        ],
+        "complete_decode": "passed",
+        "original_excerpt_audio_packets_and_times": "passed",
+        "visual": "not approved; subtitles altered and pixel sheet rendered as3D character"
+      },
+      "local_runner_regressions": 40,
+      "http_regressions": 12,
+      "scope": "Canonicalize relative Windows subfolders before safety validation; reject traversal/root/drive paths, ignore fullpath, preserve original successful receipts."
+    },
+    "maintenance_1_5": {
+      "cloud_generation_performed": false,
+      "visual_auto_approval": false,
+      "test_status": "passed",
+      "offline_runtime_tests": 294,
+      "publication_tests": 11,
+      "standalone_forward_runtime": "passed",
+      "saved_receipt_unknown_detection": "passed",
+      "local_gpu_generation_performed": false
+    },
+    "production_ops_tests": 19,
+    "reliability_upgrade_tests": 22,
+    "publication_tests": 11,
+    "maintenance_1_6": {
+      "runtime_tests": 299,
+      "publication_tests": 11,
+      "native_t2v_smoke": {
+        "completed": true,
+        "width": 1344,
+        "height": 768,
+        "fps": "24",
+        "frames": 124,
+        "audio": "AAC",
+        "complete_decode": "passed"
+      },
+      "native_reference_input_smoke": {
+        "completed": true,
+        "images": 1,
+        "videos": 1,
+        "width": 1344,
+        "height": 768,
+        "fps": "24",
+        "frames": 124,
+        "audio": "AAC",
+        "complete_decode": "passed",
+        "scope": "Synthetic forest river image/video references through native factory client and graph compiler; no character identity quality claim"
+      },
+      "character_quality_auto_approval": false
+    },
+    "maintenance_1_7": {
+      "runtime_tests": 309,
+      "publication_tests": 11,
+      "new_gpu_tasks": 0,
+      "quality_inferred_from_pixels": false,
+      "modification_method": "regenerate",
+      "full_tests_log_sha256": "d228f2d8993b0e9c085ac68b6caf46145e5d89fd0b35022b69ae6368ff081245",
+      "scope": "Offline real-media duration checks, frame-grid/loader binding, CLI guards and generated-template inheritance; no new generated video quality claim"
+    },
+    "evidence_scope": "Historical production and prior-release offline evidence retained for audit; these fields do not approve any 1.8 generated film. Current release results are reported separately.",
+    "maintenance_1_8": {
+      "runtime_tests": 441,
+      "publication_tests": 11,
+      "dedicated_previous_physical_tests": 43,
+      "new_generation_tasks": 0,
+      "new_film_visual_acceptance": false,
+      "scope": "Offline actual media, guards, request compilation, recovery and standalone package checks only."
+    },
+    "maintenance_1_9": {
+      "runtime_tests": 485,
+      "new_consistency_tests": 44,
+      "source_authoring_tests": 20,
+      "native_state_tests": 17,
+      "integration_tests": 7,
+      "publication_guard_tests": 11,
+      "independent_new_source_forward": "passed",
+      "production_generation_tasks": 0,
+      "new_production_visual_acceptance": false,
+      "publication": "local-only per user choice"
+    },
+    "release_v1": {
+      "runtime_tests": 485,
+      "publication_guard_tests": 14,
+      "new_production_generation_tasks": 0,
+      "new_film_visual_acceptance": false,
+      "scope": "Renamed and versioned derivative; private ledgers retain their existing compatibility namespace."
+    }
+  },
+  "source_of_methods": "r2va-character-replacement; verified local production repairs; official MiniMax/RunningHub reference contracts",
+  "documentation_updates": [
+    "Cross-style photographic identity guides when keeping source live action",
+    "Separate short reaction ownership; explicit replacement rather than extra characters",
+    "TLS-preserving result download recovery",
+    "Link source-specific constraints in generated skills",
+    "Opening shot starts at zero while buffered source events remain shifted",
+    "Run-specific image-edited opening guide in excluded preroll, exact source-pose review and cache version binding",
+    "Explicit queue/resource busy waiting without retry-count exhaustion; accepted or uncertain jobs never reposted",
+    "Standard H3 model permission denial scoped to account and current private key fingerprint",
+    "Opening guides require whole-frame foreground scale and occlusion comparison with native source",
+    "Timing repairs explicitly retain verified intermediate source action phases",
+    "Opening-guide visible iris/eye/jaw checks against current identity, and actual intermediate source movement rather than artificial pose holding",
+    "Local candidate composites retain parent signatures and per-frame provenance; seams and identity require new review",
+    "Lossless intermediate-media claims require complete decoded RGB/PTS proof; raw RGB fallback on discrepancy",
+    "Source motion events distinguish beginning, completion and sustained state using actual neighboring native source frames",
+    "Distinct parallel repair hypotheses share one account recovery dispatcher, immutable candidate records and the global concurrency cap",
+    "Conditional explicit source-time dilation: derived video/audio/event clocks share the same scale; original final PTS/audio and per-source-owner mapping retained; actual projection and visual review remain required",
+    "Self-contained Transport result-download recovery with live independent HTTPS DNS consensus, original hostname/SNI/certificate verification, full decode and atomic promotion; six offline negative/positive tests.",
+    "Independent UUID partial downloads and atomic no-overwrite candidate promotion; actual two-worker forward checks. DNS documentation accurately filters private answers before public consensus.",
+    "Ready guard applies to original production contract before source-neutral analysis copying; freeform run review_notes excluded from public template.",
+    "ZIP source portability verifies actual SHA/size and binds copied new-run signature; normal run source signature stays strict.",
+    "Current-window complete identity overrides bind only that input and derived contract; exact slot coverage and compiler label validation; real-media six-window isolation tests.",
+    "Actual native tool display budget, fixed-wide duplicate/cut diagnosis, and same-source continuous seam topknot/clothing/contact review with reviewed prior-window opening guide.",
+    "Final guard binds actual complete decoded final report and source canvas/PTS/audio contract; eight meaningful real-media regression groups.",
+    "Correct opening guide does not prove every target identity/outfit persisted in actual video; observed leakage rejects candidate, freezes other accepted windows and receives window-local positive appearance repair.",
+    "Known task query FAILED with explicit busy code retains original state/taskId/account slot, receipt and at-least60second wait; no repeated POST. defer_submission rejects known IDs; actual offline regression.",
+    "Actual synchronized gesture delay distinguishes correct context/prefix/derived/owner clocks from generated action lag; window-local measured motion-phase repair preserves other accepted inputs and never shifts owners.",
+    "Every new dedicated skill has a Chinese source-content display/search title in description, heading, UI metadata and manifest; the exact snapshot enters the ZIP. Stable ASCII source identity remains unchanged.",
+    "Chinese --display-name build CLI with one-line validation, Chinese fallback for hash filenames, duplicate-source preservation and draft-ready title inheritance; five new real-media package/subprocess regressions.",
+    "Reuse known source analysis and bound successful-window reviews; resume known tasks after restart; diagnose input, source phase, guide, clock and permissions before targeted retries. Initial20round factory research is not repeated by default.",
+    "Dedicated GitHub repository and continuing factory-only publication route; README registration/social links, forbidden ROADMAP/credentials, manifest whitelist and outgoing-commit guard recorded.",
+    "Explicit documented legacy ResolutionSelector aspect/MP, request and route binding, portrait/mismatch guard before paid submission; actual landscape failures retained; new published115+214 portrait direction confirmed while identity/prop QA failed.",
+    "Current live single-image app publishes ResolutionSelector115 and214; explicitly set both aspects, bind node IDs to pilot route, reject unsupported/duplicate nodes. Previous unpublished115 aspect was ignored in actual output; actual portrait direction confirmed; identity/prop QA still failed.",
+    "Explicit standalone Video1 source performance/camera/time/scene definition and Subject/Picture provenance; replacement summary keeps source roles/positions and obeys face-only scope. Two meaningful local-order/scope regressions. Positive current empty-prop state plus effective identity clauses passed one portrait window; frozen custom prompts are not blindly overwritten on QA promotion.",
+    "Authenticated read-only two-image app schema publishes115+214 aspects and139reference; whitelist both known apps for214, preserve unknown-app rejection and app-specific pilot isolation; sameidentity twoexpression reference does not add sourceactor.",
+    "User production policy: segment by actual shot/natural action phase, no fixed5second default; sourceowner/fullgeneratedclip hardcap10seconds includingcontext/preroll/dilation/tail. Shot6seconds stays whole,11seconds rejected before generation; policy copied to every new standalone skill entry/runtime.",
+    "Account-wide target3 as well as cap3; normal three-window batches and tail1-2scope three-hypothesis repairs, independent pilot branches, no repeat paid filler, approvals and actual owner/seam QA retained; new standalone skills inherit entry policy.",
+    "User-requested background-only media review avoids desktop player and input injection. Actual contiguous native source/PTS review can approve production inputs; original-speed playback evidence is recorded separately and final dynamic-ready requirements retained.",
+    "Actual cloud headguide rectangle borders traced to assumed globally scaled contact-sheet panel coordinates; use actual photo extents and personally review every native edge/headbody connection before production.",
+    "Observed localFFmpeg7.1 native crashes in audio mux with empty stderr; explicit scalar option now also sets subprocess-cpuflags0, detached stdin and numeric error exit.16current scalar mux reproductions and68full Windows media/template checks passed; no global CPU or system change.",
+    "Actual photo bounds alone do not prove head/body integration. Current soft outer blend with fully covered head core removed observed rectangle in a50frame native review; full original-speed still pending. No fixed blend width.",
+    "Actual image-edited clean cloth/background can remove an opaque blank caption plate before original glyph/time restoration. Declared frame-local box/halo and outside RGB equality, actual panel bounds and cross-window caption material review retained.",
+    "Actual source color enums include unspecified values. Full independent final decode, numeric native exit diagnosis and reuse of verified raw owners prevent unnecessary cloud reruns; short successful probes and process exit alone do not prove fullfilm.",
+    "Original identity is an independent quality gate: compare literal user photo, source actor and current output; changed hairstyle/costume/action does not prove identity. Derived and previously approved generated references are rechecked against original authority; broad human identity rejection revokes corresponding identity conclusions, preserving source technical facts.",
+    "Original-photo identity correction with measured output clock/canvas, optional bounded detail, missing detector and foreground-mask risks; actual fullfilm acceptance is bound to the current file and does not alter rejected intermediate reviews.",
+    "Maintenance20rounds applied current production evidence without copying APT media, identities, fixed mappings, ROI coordinates or exposure coefficients",
+    "Fresh uploads per paid request; shared uncertain-submission barrier; query/refill/download ordering; persistent bounded backoff for already-paid network recovery",
+    "Complete actual-output evidence and labeled native ROI; explicit full-owner source pose/cut mapping with current artifact hashes, actual observations and visual mapping digest; remap resets visual pending",
+    "Independent canonical PNG RGB and PTS/duration proof with immutable plan/PNG/video checks, explicit quantization bound and separate visual pending",
+    "PyAV18 SideData object iteration compatibility; new standalone ZIP runtime, explicit deps import, source-only evidence boundary and full outgoing Git history protection",
+    "Application-specific discrete frame capabilities extended only from accepted/downloaded task evidence; dual long-shot input retains source owners and existing pilot/10second gates",
+    "1.3.1 normalizes both old enum-key and new object SideData APIs; real H264 SEI and display matrix regression preserves all data, resolving actual Linux CI difference.",
+    "1.8 scoped production contracts: bound runtime launch; purpose-scoped actual image inputs; requested stage approvals; exact artwork and visible-reference review; restricted authorized caption/audio chain; source-preserving monotonic revisions; current-output delivery state. Offline validation does not approve a new film or GPU result.",
+    "1.9 source-first structural authoring, actual source capture and explicit activation, owner-scoped native source/output state evidence and transition records, source geometry connected to prompts, and material-gap diagnosis for repeated physical failures. No new film or perceptual pass is claimed."
+  ],
+  "publishing": {
+    "repository": "https://github.com/ccofallen/video-replication-factory",
+    "scope": "video-replication-factory only",
+    "default_branch": "main",
+    "release_tag": "v1",
+    "upstream_attribution": "https://github.com/T8mars/video-replacement-skill-factory-T8",
+    "checks": "Manifest whitelist, attribution, secrets and all outgoing commits",
+    "excluded": "Source media, identities, candidates, dedicated skills, private configs and ledgers"
+  },
+  "display_name": "视频复刻工厂",
+  "maintenance_research": {
+    "date": "2026-11-04",
+    "rounds": 20,
+    "completed": true,
+    "method": "Twenty actual sequential proposals and independent counter-reviews, followed by implementation and fault regression.",
+    "report_sha256": "e46216bb012d24dadb367acb285173d5b5f33b25a955f1e74bf8150c7e9f341f",
+    "report_publication": "Local research only; user production records and billing excluded"
+  },
+  "h3_comparison_research": {
+    "date": "2026-11-03",
+    "reference": "https://github.com/gosick233-cloud/h3-video-replace",
+    "reference_revision": "961847e484bc06df4f615db88d72b1e4b610ed13",
+    "rounds_requested": 20,
+    "completed": true,
+    "report_publication": "Local evidence-backed bilateral research; not included in source repository",
+    "rounds_completed": 20,
+    "report_sha256": "4279e3ac2a189a3e9e49ce5904c81d710a57cbca2883643eb74ecdf802cf2806"
+  },
+  "local_extension": {
+    "id": "runninghub-custom-h3-1",
+    "workflow_id": "2117403951334162433",
+    "connection_verified": true,
+    "cloud_generation_performed": false,
+    "adapter_offline_tests_passed": 22
+  },
+  "runtime_version": "v1",
+  "available_capabilities": [
+    "runtime-binding",
+    "scoped-physical-contract",
+    "multi-purpose-references",
+    "conditional-production-policy",
+    "restricted-postproduction",
+    "structured-consistency"
+  ],
+  "production_contracts": {
+    "reference": "references/production-contracts.md",
+    "run_runtime": "run-runtime.json",
+    "mixed_media": "job.media_references; missing/empty retains legacy identity order",
+    "optional_policy": "production-policy.json; requested stages only; scoped artwork/visible identity when declared",
+    "optional_postproduction": "postproduction.json; explicit caption/audio authorization after current base technical and visual pass",
+    "delivery_state": "delivery_state.json; provisional and final user acceptance remain distinct",
+    "source_facts": "source-matching dedicated evidence; no fixed source hash or product mechanics in shared runtime",
+    "revision_allocation": "max current/history/tombstones/install-dir revision plus one",
+    "version_dimensions": [
+      "factory_version",
+      "runtime_version",
+      "runtime_digest",
+      "template_revision"
+    ],
+    "source_authoring": "references/object-consistency.md; physical_source draft/validate/activate, actual source_review.capture, unknown blocks activation; existing authorization used for explicit binding migration",
+    "structured_consistency": "consistency_checks with owner-scoped source/output native PNG state pairs and adjacent transition observations; export remains pending"
+  },
+  "release_validation": {
+    "release": "v1",
+    "scope": "Renamed derivative release; existing media/runtime regressions and publication guards verified separately.",
+    "new_cloud_generation_performed": false,
+    "new_local_gpu_generation_performed": false,
+    "new_production_film_approval_claimed": false,
+    "automatic_visual_or_listening_pass": false,
+    "publication": "GitHub release requested by user"
+  },
+  "derived_from": {
+    "repository": "https://github.com/T8mars/video-replacement-skill-factory-T8",
+    "upstream_commit": "5e5a1d85abc661b15a65c0a3094e8bf88810abc5",
+    "local_base_version": "1.9.0"
+  }
+}
